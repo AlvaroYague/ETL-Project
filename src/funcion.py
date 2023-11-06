@@ -1,5 +1,8 @@
 import folium
 import unicodedata
+
+#función para filtrar viviendas por precio y distrito
+
 def mostrar_viviendas_filtradas(df, columnas, filtro_barrio=None, precio_min=None, precio_max=None):
  
     mapa = folium.Map(location=[40.4167, -3.70325], zoom_start=12)
@@ -19,6 +22,7 @@ def mostrar_viviendas_filtradas(df, columnas, filtro_barrio=None, precio_min=Non
     return mapa
 
 
+#función para limpiar tildes y otros símbolos de un dataframe
 
 def quitar_tildes_y_simbolos(texto):
     texto = unicodedata.normalize('NFKD', texto).encode('ASCII', 'ignore').decode('utf-8')
